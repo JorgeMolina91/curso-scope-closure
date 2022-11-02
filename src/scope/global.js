@@ -1,7 +1,6 @@
 //Variables
 
 var a; //Declarando una variable
-
 var b = 'b'; //Declaramos y asignamos una variable
 var b = 'bb'; //Reasignando el valor una variable
 var a = 'aa'; //Redeclaracion de la variable
