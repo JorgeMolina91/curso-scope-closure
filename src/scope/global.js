@@ -24,3 +24,4 @@ function countries(){
 }
 countries();
 console.log(country);
+

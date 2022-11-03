@@ -25,8 +25,11 @@ Son las variables declaradas dentro de un bloque (Un bloque de código es todo a
  
 ## Reasignación y redeclaración
 > var a; //Declarando una variable
+
 > var a = 'aa'; //Redeclaracion de la variable
+
 > var b = 'b'; //Declarando y asignando una variable
+
 > var b = 'bb'; //Reasignando el valor una variable
 
 La redeclaración es volver a declarar una variable, y la reasignación es volver a asignar un valor.
@@ -35,7 +38,7 @@ La redeclaración es volver a declarar una variable, y la reasignación es volve
 - Una variable declarada con ***let*** puede ser reasignada, pero no redeclarada.
 - Una variable declarada con ***const*** no puede ser redeclarada, ni reasignada. Su declaración y asignación debe ser en una línea, caso contrario habrá un error.
 
-```
+```javascript
 // Con var
 var nombre // declaración (undefined) ✅
 nombre = "Andres" // asignación ✅
@@ -55,3 +58,63 @@ nombre = "Valeria" // TypeError: Assignment to constant variable. ❌
 const nombre = "Oscar" // SyntaxError: Identifier 'nombre' has already been declared. ❌
 
 ```
+
+## Strict Mode
+El modo estricto es una funcionalidad que le permite al motor de JavaScript cambiar la manera en que ejecuta el código. En este modo, se reduce las cosas que podemos hacer, esto es bueno porque permite manejar errores que son poco perceptibles o que el motor de JavaScript sobreentiende y ayuda a su compilación para corregirlos.
+
+El modo estricto tiene varios cambios en la semántica normal de JavaScript:
+1. Elimina algunos errores silenciosos de JavaScript cambiándolos para que lancen errores.
+2. Corrige errores que hacen difícil para los motores de JavaScript realizar optimizaciones: a veces, el código en modo estricto puede correr más rápido que un código idéntico pero no estricto.
+3. Prohíbe cierta sintaxis que probablemente sea definida en futuras versiones de ECMAScript.
+
+
+## Que es Closure
+- Un closure permite acceder al scope o ambito de una función exterior desde una función interior. En JS los closures se crean cada vez que una funcion es creada.
+- A diferenecia de las variables, funciones, etc. Los closures no son siempre utilizados.
+- Un closure es cuando una función accede a una variable fuera de su contexto.
+- Al trabajar con closures entra en juego el concepto de alcance de las variables.
+
+
+
+### Construcción de un closure
+Para construir un closure necesitaremos los siguientes requisitos:
+```javascript
+function padre() {
+    
+    function hijo(){
+    }
+}
+```
+
+Una variable que se encuentre en la función con el scope superior, donde la función con scope inferior la utilice.
+```javascript
+function padre() {
+    let numero = 5
+    function hijo(){
+        numero = numero + 1
+        return numero
+    }
+}
+```
+
+Invocar la función con scope inferior en otro scope (el scope superior) del que fue escrita. Esto lo podemos hacer retornando la función entera y asignar la función de scope superior a una variable.
+```javascript
+function padre() {
+    let numero = 5
+    function hijo(){
+        numero = numero + 1
+        return numero
+    }
+    
+    return hijo
+}
+const closure = padre()
+```
+De esta manera obtendremos una función (scope inferior) que tiene una referencia a la variable que se encontraba en un scope superior, que a su vez recordará el contexto donde fue creada.
+
+
+## ¿Qué es el Hoisting?
+Hoisting es un término para describir que las declaraciones de variables y funciones son desplazadas a la parte superior del scope más cercano, scope global o de función. Esto sucede solamente con las declaraciones y no con las asignaciones.
+
+El código permanece igual, solo es una interpretación del motor de JavaScript. En el caso de las variables solamente sucede cuando son declaradas con ***var***.
+
