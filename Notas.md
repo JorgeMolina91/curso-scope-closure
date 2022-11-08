@@ -118,3 +118,43 @@ Hoisting es un término para describir que las declaraciones de variables y func
 
 El código permanece igual, solo es una interpretación del motor de JavaScript. En el caso de las variables solamente sucede cuando son declaradas con ***var***.
 
+
+## Debugging
+Debugging es el término para solucionar bugs. Los bugs (“bichos” en inglés) son errores en la aplicación, saber cómo solucionarlos de manera eficiente es clave para tu desarrollo como profesional.
+Todo navegador dispone de Dev tools o herramientas de desarrollador, que es un conjunto de características del código de la página web, una de estas es el debugging.
+
+**Código de ejemplo**
+El código de ejemplo que se usará en las Dev Tools será el siguiente:
+```Javascript
+var a = "Hello global"
+
+function hello() {
+  let b = "Hello function"
+
+  if(true) {
+    let c = "Hello block"
+  }
+}
+
+hello() //undefined 
+```
+
+**Palabra reservada debugger**
+La palabra reservada debugger sirve para detener la ejecución del programa, pero solo funciona si el panel de las herramientas de desarrollo está abierto. Este panel te mostrará información sobre el código hasta la línea del debugger.
+
+Ejecuta el código de prueba que contenga la palabra reservada debugger en la consola de tu navegador, puedes hacerlo en una página en blanco tan solo poniendo about:blank como una URL.
+
+```Javascript
+var a = "Hello global"
+
+function hello() {
+  let b = "Hello function"
+
+  if(true) {
+    let c = "Hello block"
+    debugger // <---- Palabra reservada para debbuging
+  }
+}
+
+hello()
+```

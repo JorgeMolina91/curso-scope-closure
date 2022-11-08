@@ -8,7 +8,7 @@ function fruits(){
     }
     console.log(fruit1);// Apple
     console.log(fruit2);// ReferenceError: fruit2 is not defined - porque fue declarada con let y se sale del scope de donde fue declarada (el scope es if(...){...})
-    console.log(fruit3);//ReferenceError: fruit3 is not defined - porque fue declarada con let y se sale del scope de donde fue declarada (el scope es if(...){...})
+    console.log(fruit3);//ReferenceError: fruit3 is not defined - porque fue declarada con const y se sale del scope de donde fue declarada (el scope es if(...){...})
 }
 fruits()
 
